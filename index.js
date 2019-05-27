@@ -56,7 +56,7 @@ class MailListener extends EventEmitter {
   }
 
   stop() {
-    this.imap.connect();
+    this.imap.end();
   }
 
   imapReady() {
