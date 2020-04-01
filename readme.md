@@ -40,7 +40,7 @@ JavaScript Code:
 
 ```javascript
 
-var MailListener = require("mail-listener5");
+var { MailListener } = require("mail-listener5");   // NOTE: A FUTURE VERSION (release date TBA) will not require ES6 destructuring or referring to the class after the require statement (i.e. require('mail-listener5').MailListener). At this stage, this is necessary because index.js exports the MailListener class as a property of module.exports.
 
 var mailListener = new MailListener({
   username: "imap-username",
