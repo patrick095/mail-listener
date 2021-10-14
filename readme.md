@@ -1,6 +1,6 @@
 # Overview
 
-Mail-listener5 library for node.js. Get notification when new email arrived to inbox or when message metadata (e.g. flags) changes externally. Uses IMAP protocol.
+Mail-listener5 library for node.js. Get notification when new email arrived to inbox or when message metadata (e.g. flags) changes externally. Uses IMAP protocol. 
 
 ## Version Notes
 THIS PACKAGE IS STILL UNDERGOING MORE THOROUGH TESTING AND IMPROVEMENT. Expect further commits as functionality is added. :-)
