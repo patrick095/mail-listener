@@ -3,19 +3,21 @@
 Mail-listener5 library for node.js. Get notification when new email arrived to inbox or when message metadata (e.g. flags) changes externally. Uses IMAP protocol. 
 
 ## Version Notes
-THIS PACKAGE IS STILL UNDERGOING MORE THOROUGH TESTING AND IMPROVEMENT. Expect further commits as functionality is added. :-)
-
 This package has several improvements and fixes over the mail-listener2 & mail-listener4. Most of the improvements are designed to improve security & usability, plus avoid deprecation warnings. The previous mail-listener packages used a now-deprecated version of MailParser and unsafe buffer constructors (see change notes below).
 
 This package uses the simpleParser function in NodeMailer. This parser is easier to implement & provides a Mail object from which any needed attributes can be extracted. However, it is more resource-intensive when it comes to larger emails, as attachments are not handled as streams, but rather are buffered in memory. In a future version, I plan to reintroduce the ability to stream attachments directly (rather than buffering them) so that larger attachments can be processed with fewer resources.
 
 Change notes:
-
-  - Updating dependencies to newer versions, with security enhancements, etc. The previous mail-listeners all used now-deprecated versions of dependencies, many of which posed security problems as they used unsafe Buffer constructors (e.g. new Buffer() - see https://nodejs.org/en/docs/guides/buffer-constructor-deprecation/).
-  - Updating code to use ES6 classes. The previous version used util.inherits(), which is now discouraged (see https://nodejs.org/dist/latest-v10.x/docs/api/util.html#util_util_inherits_constructor_superconstructor).
-  - Updating code to use lexical variable declarations where appropriate.
-  - Updating code to use ES6 arrow functions within methods where appropriate.
-  - Updating test.js to use environment variables for credentials, etc (see new [Testing](#Testing) section below).
+  - v2.1.0:
+    - Updating dependencies to new versions (fixes [Issue #35](https://github.com/MateMalice/mail-listener2/issues/35), [Issue #36](https://github.com/MateMalice/mail-listener2/issues/36) and Snyk security findings).
+    - Improvements to email attribute handling as per the suggestions in [Issue #28](https://github.com/MateMalice/mail-listener2/issues/28).
+    - Error handling fixes (fix for [Issue #33](https://github.com/MateMalice/mail-listener2/issues/33)).
+  - Changes from mail-listener4:
+     - Updating dependencies to newer versions, with security enhancements, etc. The previous mail-listeners all used now-deprecated versions of dependencies, many of which posed security problems as they used unsafe Buffer constructors (e.g. new Buffer() - see https://nodejs.org/en/docs/guides/buffer-constructor-deprecation/).
+    - Updating code to use ES6 classes. The previous version used util.inherits(), which is now discouraged (see https://nodejs.org/dist/latest-v10.x/docs/api/util.html#util_util_inherits_constructor_superconstructor).
+    - Updating code to use lexical variable declarations where appropriate.
+    - Updating code to use ES6 arrow functions within methods where appropriate.
+    - Updating test.js to use environment variables for credentials, etc (see new [Testing](#Testing) section below).
 
 We are using these libraries: [node-imap](https://github.com/mscdex/node-imap), [mailparser](https://github.com/andris9/mailparser).
 

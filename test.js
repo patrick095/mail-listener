@@ -33,7 +33,7 @@ mailListener.on("server:disconnected", function(){
 });
 
 mailListener.on("error", function(err){
-  console.log(err);
+  console.log(`Error encountered: ${err}`);
 });
 
 mailListener.on("headers", function(headers, seqno){
