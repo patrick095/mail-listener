@@ -107,11 +107,15 @@ class MailListener extends EventEmitter {
             markSeen: self.markSeen
           });
           f.on('message', (msg, seqno) => {  
+            let attrs;
+            msg.on('attributes', (a) => {
+              attrs = a;
+            });
             msg.on('body', async (stream, info) => {
               let parsed = await simpleParser(stream);
-              self.emit('mail', parsed, seqno);
-              self.emit('headers', parsed.headers, seqno);
-              self.emit('body', {html: parsed.html, text: parsed.text, textAsHtml: parsed.textAsHtml}, seqno);
+              self.emit('mail', parsed, seqno, attrs);
+              self.emit('headers', parsed.headers, seqno, attrs);
+              self.emit('body', {html: parsed.html, text: parsed.text, textAsHtml: parsed.textAsHtml}, seqno, attrs);
               if (parsed.attachments.length>0)
               {
                 for (let att of parsed.attachments)
@@ -121,11 +125,11 @@ class MailListener extends EventEmitter {
                     await fs.writeFile(`${self.attachmentOptions.directory}${att.filename}`, att.content, (error) =>{
                       self.emit('error', error);
                     });
-                    self.emit('attachment', att, `${self.attachmentOptions.directory}${att.filename}`, seqno);
+                    self.emit('attachment', att, `${self.attachmentOptions.directory}${att.filename}`, seqno, attrs);
                   }
                   else
                   {
-                    self.emit('attachment', att, null, seqno);
+                    self.emit('attachment', att, null, seqno, attrs);
                   }
                 }
               }
