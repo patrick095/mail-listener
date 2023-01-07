@@ -23,12 +23,15 @@ We are using these libraries: [node-imap](https://github.com/mscdex/node-imap), 
 
 Heavily inspired by [mail-listener2](https://github.com/chirag04/mail-listener2) and [mail-listener5](https://github.com/Pranav-Dakshina/mail-listener2).
 
-NOTE: This version is designed to work with & tested on NodeJS v 10.15.2 LTS, the most recent LTS version as at March 2019. It might not work on older versions of Node.
+NOTE: This version is designed to work with & tested on NodeJS v 18.13.0 LTS, the most recent LTS version as at January 2023. It might not work on older versions of Node.
 
 ## Planned Future Improvements
 Whilst this package is confirmed to work, the ability to stream attachments (present in the older versions of mail-listener) has been taken out, mainly because the MailParser library has changed significantly & a substantial amount of refactoring is required in order to allow the safe streaming of attachments (which may contain untrusted content). 
 
 A future version will reintroduce this capability once the refactoring is complete. That version will allow attachments to be streamed directly to functions. At present, attachments are either saved to a file for later processing (if that option is selected) or an 'attachment' event is emitted, which contains a Buffer with the attachment content. This Buffer can then be processed as needed.
+
+## Known issues
+Some email attachments will not be processed properly, but will instead be saved into a single file in the attachments directory called "Undefined". This was raised in [Issue #32](https://github.com/MateMalice/mail-listener2/issues/32). The issue does not occur with all attachments; the majority of attachments tested were saved properly. This problem is under investigation and will be fixed in a future release.
 
 ## Use
 
