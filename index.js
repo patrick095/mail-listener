@@ -37,6 +37,7 @@ class MailListener extends EventEmitter {
       host: options.host,
       port: options.port,
       tls: options.tls,
+      autotls: options.autotls || null,
       tlsOptions: options.tlsOptions || {},
       connTimeout: options.connTimeout || null,
       authTimeout: options.authTimeout || null,
