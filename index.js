@@ -1,7 +1,7 @@
 /**@module mail-listener5
  * @author Matej Malicek <matej@malicek.co>
- * @version 2.1.0
- * @date 7 January 2023
+ * @version 2.1.2
+ * @date 26 January 2023
  */
 
 // Require statements

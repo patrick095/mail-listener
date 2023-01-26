@@ -8,6 +8,9 @@ This package has several improvements and fixes over the mail-listener2 & mail-l
 This package uses the simpleParser function in NodeMailer. This parser is easier to implement & provides a Mail object from which any needed attributes can be extracted. However, it is more resource-intensive when it comes to larger emails, as attachments are not handled as streams, but rather are buffered in memory. In a future version, I plan to reintroduce the ability to stream attachments directly (rather than buffering them) so that larger attachments can be processed with fewer resources.
 
 Change notes:
+  - v2.1.2:
+    - Added "autotls" option as documented in [node-imap](https://www.npmjs.com/package/node-imap#connection-instance-methods). (Thanks [@MorphedAU](https://github.com/MorphedAU)!)
+    - Updated dependencies.
   - v2.1.0:
     - Updating dependencies to new versions (fixes [Issue #35](https://github.com/MateMalice/mail-listener2/issues/35), [Issue #36](https://github.com/MateMalice/mail-listener2/issues/36) and Snyk security findings).
     - Improvements to email attribute handling as per the suggestions in [Issue #28](https://github.com/MateMalice/mail-listener2/issues/28).
