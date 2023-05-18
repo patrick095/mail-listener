@@ -5,7 +5,7 @@
  */
 
 // Require statements
-var Imap = require('imap');
+var Imap = require('node-imap');
 var EventEmitter = require('events').EventEmitter;
 var simpleParser = require('mailparser').simpleParser;
 var fs = require('fs');
@@ -37,7 +37,7 @@ class MailListener extends EventEmitter {
       host: options.host,
       port: options.port,
       tls: options.tls,
-      autotls: options.autotls || null,
+      autotls: options.autotls || true,
       tlsOptions: options.tlsOptions || {},
       connTimeout: options.connTimeout || null,
       authTimeout: options.authTimeout || null,
