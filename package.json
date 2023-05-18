@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/MatejMalicek/mail-listener2.git"
+    "url": "git://github.com/patrick095/mail-listener.git"
   },
-  "homepage": "https://github.com/MatejMalicek/mail-listener2",
+  "homepage": "https://github.com/patrick095/mail-listener.git",
   "keywords": [
     "mail",
     "job",
@@ -28,7 +28,7 @@
   "author": "Matej Malicek <matej@malicek.co>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MatejMalicek/mail-listener2/issues"
+    "url": "https://github.com/patrick095/mail-listener/issues"
   },
   "main": "index.js",
   "scripts": {
