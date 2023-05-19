@@ -1,7 +1,7 @@
-/**@module mail-listener5
- * @author Matej Malicek <matej@malicek.co>
- * @version 2.1.2
- * @date 26 January 2023
+/**@module mail-listener-type
+ * @author Patrick Chaves <patrick095@gmail.com>
+ * @version 2.2.1
+ * @date 18 may 2023
  */
 
 // Require statements
@@ -38,7 +38,7 @@ class MailListener extends EventEmitter {
       port: options.port,
       tls: options.tls,
       autotls: options.autotls || true,
-      tlsOptions: options.tlsOptions || {},
+      tlsOptions: options.tlsOptions || { rejectUnauthorized: false },
       connTimeout: options.connTimeout || null,
       authTimeout: options.authTimeout || null,
       debug: options.debug || null,
