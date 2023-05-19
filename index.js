@@ -41,7 +41,8 @@ class MailListener extends EventEmitter {
       tlsOptions: options.tlsOptions || {},
       connTimeout: options.connTimeout || null,
       authTimeout: options.authTimeout || null,
-      debug: options.debug || null
+      debug: options.debug || null,
+      keepalive: options.keepalive || null,
     });
     this.imap.once('ready', this.imapReady.bind(this));
     this.imap.once('close', this.imapClose.bind(this));
