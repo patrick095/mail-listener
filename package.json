@@ -1,5 +1,5 @@
 {
-  "name": "mail-listener-patrick",
+  "name": "mail-listener-type",
   "version": "2.2.0",
   "description": "Mail listener library for node.js. Get notification when new email arrived.",
   "dependencies": {
