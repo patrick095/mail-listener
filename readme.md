@@ -1,46 +1,14 @@
 # Overview
 
-Mail-listener5 library for node.js. Get notification when new email arrived to inbox or when message metadata (e.g. flags) changes externally. Uses IMAP protocol. 
+mail-listener-type library for node.js. Get notification when new email arrived to inbox or when message metadata (e.g. flags) changes externally. Uses IMAP protocol. 
 
-## Version Notes
-This package has several improvements and fixes over the mail-listener2 & mail-listener4. Most of the improvements are designed to improve security & usability, plus avoid deprecation warnings. The previous mail-listener packages used a now-deprecated version of MailParser and unsafe buffer constructors (see change notes below).
-
-This package uses the simpleParser function in NodeMailer. This parser is easier to implement & provides a Mail object from which any needed attributes can be extracted. However, it is more resource-intensive when it comes to larger emails, as attachments are not handled as streams, but rather are buffered in memory. In a future version, I plan to reintroduce the ability to stream attachments directly (rather than buffering them) so that larger attachments can be processed with fewer resources.
-
-Change notes:
-  - v2.1.2:
-    - Added "autotls" option as documented in [node-imap](https://www.npmjs.com/package/node-imap#connection-instance-methods). (Thanks [@MorphedAU](https://github.com/MorphedAU)!)
-    - Updated dependencies.
-  - v2.1.0:
-    - Updating dependencies to new versions (fixes [Issue #35](https://github.com/MateMalice/mail-listener2/issues/35), [Issue #36](https://github.com/MateMalice/mail-listener2/issues/36) and Snyk security findings).
-    - Improvements to email attribute handling as per the suggestions in [Issue #28](https://github.com/MateMalice/mail-listener2/issues/28).
-    - Error handling fixes (fix for [Issue #33](https://github.com/MateMalice/mail-listener2/issues/33)).
-  - Changes from mail-listener4:
-     - Updating dependencies to newer versions, with security enhancements, etc. The previous mail-listeners all used now-deprecated versions of dependencies, many of which posed security problems as they used unsafe Buffer constructors (e.g. new Buffer() - see https://nodejs.org/en/docs/guides/buffer-constructor-deprecation/).
-    - Updating code to use ES6 classes. The previous version used util.inherits(), which is now discouraged (see https://nodejs.org/dist/latest-v10.x/docs/api/util.html#util_util_inherits_constructor_superconstructor).
-    - Updating code to use lexical variable declarations where appropriate.
-    - Updating code to use ES6 arrow functions within methods where appropriate.
-    - Updating test.js to use environment variables for credentials, etc (see new [Testing](#Testing) section below).
-
-We are using these libraries: [node-imap](https://github.com/mscdex/node-imap), [mailparser](https://github.com/andris9/mailparser).
-
-Heavily inspired by [mail-listener2](https://github.com/chirag04/mail-listener2) and [mail-listener5](https://github.com/Pranav-Dakshina/mail-listener2).
-
-NOTE: This version is designed to work with & tested on NodeJS v 18.13.0 LTS, the most recent LTS version as at January 2023. It might not work on older versions of Node.
-
-## Planned Future Improvements
-Whilst this package is confirmed to work, the ability to stream attachments (present in the older versions of mail-listener) has been taken out, mainly because the MailParser library has changed significantly & a substantial amount of refactoring is required in order to allow the safe streaming of attachments (which may contain untrusted content). 
-
-A future version will reintroduce this capability once the refactoring is complete. That version will allow attachments to be streamed directly to functions. At present, attachments are either saved to a file for later processing (if that option is selected) or an 'attachment' event is emitted, which contains a Buffer with the attachment content. This Buffer can then be processed as needed.
-
-## Known issues
-Some email attachments will not be processed properly, but will instead be saved into a single file in the attachments directory called "Undefined". This was raised in [Issue #32](https://github.com/MateMalice/mail-listener2/issues/32). The issue does not occur with all attachments; the majority of attachments tested were saved properly. This problem is under investigation and will be fixed in a future release.
+This project are forked from [MateMalice/mail-listener2](https://github.com/MateMalice/mail-listener2).
 
 ## Use
 
 Install
 
-`npm install mail-listener5`
+`npm install mail-listener-type`
 
 
 JavaScript Code:
@@ -48,7 +16,7 @@ JavaScript Code:
 
 ```javascript
 
-var { MailListener } = require("mail-listener5");   // NOTE: A FUTURE VERSION (release date TBA) will not require ES6 destructuring or referring to the class after the require statement (i.e. require('mail-listener5').MailListener). At this stage, this is necessary because index.js exports the MailListener class as a property of module.exports.
+import { MailListener } from "mail-listener-type";
 
 var mailListener = new MailListener({
   username: "imap-username",

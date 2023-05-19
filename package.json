@@ -25,7 +25,7 @@
     "node imap",
     "mail parser"
   ],
-  "author": "Matej Malicek <matej@malicek.co>",
+  "author": "Patrick Chaves <patrick095@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/patrick095/mail-listener/issues"

@@ -1,4 +1,4 @@
-var MailListener = require("./index.js").MailListener;
+import { MailListener } from "./index.js";
 
 var mailListener = new MailListener({
   username: process.env.IMAPUSER,
