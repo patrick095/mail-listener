@@ -107,7 +107,7 @@ class MailListener extends EventEmitter {
               attrs = a;
             });
             msg.on('body', async (stream, info) => {
-              let parsed = await simpleParser(stream);
+              let parsed = await simpleParser(stream, this.mailParserOptions);
               self.emit('mail', parsed, seqno, attrs);
               self.emit('headers', parsed.headers, seqno, attrs);
               self.emit('body', { html: parsed.html, text: parsed.text, textAsHtml: parsed.textAsHtml }, seqno, attrs);

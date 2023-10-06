@@ -34,7 +34,8 @@ var mailListener = new MailListener({
   markSeen: true, // all fetched email willbe marked as seen and not fetched next time
   fetchUnreadOnStart: true, // use it only if you want to get all unread email on lib start. Default is `false`,
   attachments: true, // download attachments as they are encountered to the project directory
-  attachmentOptions: { directory: "attachments/" } // specify a download directory for attachments
+  attachmentOptions: { directory: "attachments/" }, // specify a download directory for attachments
+  mailParserOptions: {} //options for mailparser
 });
 
 mailListener.start(); // start listening
